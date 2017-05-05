@@ -7,6 +7,12 @@ var app = angular.module('queup', ['ionic','angularMoment','firebase']);
 app.config(function($stateProvider,$urlRouterProvider){
 
 
+ $stateProvider.state('home',{
+    url:'/home',
+     controller:'HomeController',
+    templateUrl:'templates/home.html'
+  });
+
   $stateProvider.state('queue',{
     url:'/queue',
     templateUrl:'templates/queue.html'
@@ -24,7 +30,7 @@ app.config(function($stateProvider,$urlRouterProvider){
     templateUrl:'templates/edit.html'
   });
 
-  $urlRouterProvider.otherwise('/queue');
+  $urlRouterProvider.otherwise('/home');
 
 });
 
@@ -46,6 +52,14 @@ app.run(function($ionicPlatform) {
   });
 });
 
+
+app.controller('HomeController', function($scope,$state,Queue){
+  
+  $scope.doa = function(){
+      $state.go('queue');
+  };
+
+});
 
 app.controller('QueueController', function($scope,Queue,$state){
   $scope.queue = Queue;
