@@ -1,7 +1,7 @@
 //main wrap da se ne poluta global namespace
 (function(){
 
-var app = angular.module('queup', ['ionic','angularMoment','firebase']);
+var app = angular.module('queup', ['ionic','angularMoment','firebase',]);
 
 
 app.config(function($stateProvider,$urlRouterProvider){
@@ -21,13 +21,13 @@ app.config(function($stateProvider,$urlRouterProvider){
   $stateProvider.state('edit',{
     url:'/edit/:pessoaId',
     controller:'EditController',
-    templateUrl:'templates/edit.html'
+    templateUrl:'templates/editEquipamento.html'
   });
 
-  $stateProvider.state('add',{
-    url:'/add',
-    controller:'AddController',
-    templateUrl:'templates/edit.html'
+  $stateProvider.state('addEquipamento',{
+    url:'/addEquipamento',
+    controller:'AddControllerEquipamento',
+    templateUrl:'templates/editEquipamento.html'
   });
 
   $urlRouterProvider.otherwise('/home');
@@ -81,60 +81,66 @@ app.controller('QueueController', function($scope,Queue,$state){
   */
 
   $scope.add = function(){
-    $state.go('add');
+    $state.go('addEquipamento');
   };
 
-  $scope.delete = function(pessoa){
+  $scope.delete = function(equipamento){
     //queueService.deletePerson(personId);
-    Queue.$remove(pessoa);
+    Queue.$remove(equipamento);
   };
 
 });
 
 app.controller('EditController', function($scope,$state,Queue){
-  var pessoa = Queue.$getRecord($state.params.pessoaId);
+  var equipamento = Queue.$getRecord($state.params.pessoaId);
   //$scope.person = angular.copy(queueService.getPerson($state.params.personId));
- $scope.pessoa = angular.copy(pessoa);
+ $scope.equipamento = angular.copy(equipamento);
 
 
  //console.log($scope.person);
   $scope.save = function(){
   //  queueService.updatePerson($scope.person);
     //$state.go('queue');
-    pessoa.nome = $scope.pessoa.nome;
-    pessoa.cidade = $scope.pessoa.cidade;
-    pessoa.endereco = $scope.pessoa.endereco;
-    pessoa.cep = $scope.pessoa.cep;
-    pessoa.telefone = $scope.pessoa.telefone;
-    pessoa.updatedTime = Firebase.ServerValue.TIMESTAMP;
-    Queue.$save(pessoa);
+    equipamento.nome = $scope.equipamento.nome;
+    equipamento.cidade = $scope.equipamento.cidade;
+    equipamento.quantidade = $scope.equipamento.quantidade;
+    equipamento.estado = $scope.equipamento.estado;
+    equipamento.updatedTime = Firebase.ServerValue.TIMESTAMP;
+    Queue.$save(equipamento);
     $state.go('queue');
   }
 
   $scope.delete = function(){
   //  queueService.deletePerson($scope.person.id);
       //$state.go('queue');
-      Queue.$remove(pessoa);
+      Queue.$remove(equipamento);
       $state.go('queue');
     };
 });
 
-app.controller('AddController', function($scope,$state,Queue){
-  $scope.pessoa = {
+app.controller('AddControllerEquipamento', function($scope,$state,Queue){
+  $scope.equipamento = {
     nome:'',
     cidade:'',
-    endereco:'',
-    cep:'',
-    telefone:''
+    quantidade:'',
+    estado:'' 
   };
 
+ 
+ $scope.locationChanged = function (location) {
+   alert(location);
+ };
+
+$scope.showSelectValue = function(mySelect) {
+    $scope.equipamento.estado = mySelect;
+}
    
 
 $scope.save = function(){
 //  queueService.addPerson($scope.person);
   //$state.go('queue');
-  $scope.pessoa.updatedTime = Firebase.ServerValue.TIMESTAMP;
-  Queue.$add($scope.pessoa);
+  $scope.equipamento.updatedTime = Firebase.ServerValue.TIMESTAMP;
+  Queue.$add($scope.equipamento);
   $state.go('queue');
 }
 
