@@ -1,7 +1,7 @@
 //main wrap da se ne poluta global namespace
 (function(){
 
-var app = angular.module('queup', ['ionic','angularMoment','firebase',]);
+var app = angular.module('queup', ['ionic','angularMoment','firebase','ion-place-tools',]);
 
 
 app.config(function($stateProvider,$urlRouterProvider){
