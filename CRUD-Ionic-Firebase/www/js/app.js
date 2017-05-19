@@ -3,7 +3,11 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 var app = angular.module('queup', ['ionic','angularMoment','firebase','ion-place-tools']);
+=======
+var app = angular.module('queup', ['ionic','angularMoment','firebase',]);
+>>>>>>> parent of ae5430a... 'cadastroequipamentoOK'
 =======
 var app = angular.module('queup', ['ionic','angularMoment','firebase',]);
 >>>>>>> parent of ae5430a... 'cadastroequipamentoOK'
