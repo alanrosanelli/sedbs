@@ -1,7 +1,7 @@
 //main wrap da se ne poluta global namespace
 (function(){
 
-var app = angular.module('queup', ['ionic','angularMoment','firebase','ion-place-tools',]);
+var app = angular.module('queup', ['ionic','angularMoment','firebase','ion-place-tools']);
 
 
 app.config(function($stateProvider,$urlRouterProvider){
@@ -51,6 +51,7 @@ app.run(function($ionicPlatform) {
     }
   });
 });
+
 
 
 app.controller('HomeController', function($scope,$state,Queue){
@@ -127,9 +128,7 @@ app.controller('AddControllerEquipamento', function($scope,$state,Queue){
   };
 
  
- $scope.locationChanged = function (location) {
-   alert(location);
- };
+ 
 
 $scope.showSelectValue = function(mySelect) {
     $scope.equipamento.estado = mySelect;
