@@ -1,21 +1,39 @@
 <ion-view view-title="Adicionar Equipamento">
   <ion-content>
 
+<<<<<<< HEAD
     
       
+=======
+    <div class="card">
+>>>>>>> parent of ae5430a... 'cadastroequipamentoOK'
       <ion-input class="item item-input">
         <input type="text" placeholder="Nome" ng-model="equipamento.nome">
       </ion-input>
 
+<<<<<<< HEAD
+=======
+      <ion-input class="item item-input">
+        <textarea rows="3" placeholder="Cidade" ng-model="equipamento.cidade"></textarea>
+      </ion-input>
+
+>>>>>>> parent of ae5430a... 'cadastroequipamentoOK'
 
       <ion-input class="item item-input">
         <textarea rows="3" placeholder="Quantidade" ng-model="equipamento.quantidade"></textarea>
       </ion-input>
+<<<<<<< HEAD
 
       <div>
         <ion-item class="item-input item-select">
           <div class="item-input item-select">
            Estado Equipamento
+=======
+      <div>
+        <ion-item class="item-input item-select">
+          <div class="input-label">
+           Estado
+>>>>>>> parent of ae5430a... 'cadastroequipamentoOK'
          </div>
          <select ng-model="equipamento.estado" ng-change="showSelectValue(equipamento.estado)">
           <option selected>Novo</option>
@@ -23,6 +41,7 @@
         </select>
       </ion-item>
     </div>
+<<<<<<< HEAD
 
     <div>
       <ion-google-place placeholder="Cidade" ng-model="equipamento.cidade" required name="Cidade"/>
@@ -34,6 +53,22 @@
         <button class="button button-outline button-assertive" ng-click="delete()" ng-if="equipamento.$id">Delete
         </button>
         <button class="button button-positive" ng-click="save()">Save</button>
+=======
+  </div>
+
+  
+      <div>
+        
+          <ion-google-place placeholder="Your address" ng-model="data.address" required name="address" location-changed="locationChanged"/>
+                  
+      </div>
+
+  <div class="padding">
+    <div class="button-bar">
+      <button class="button button-outline button-assertive" ng-click="delete()" ng-if="equipamento.$id">Delete
+      </button>
+      <button class="button button-positive" ng-click="save()">Save</button>
+>>>>>>> parent of ae5430a... 'cadastroequipamentoOK'
 
       </div>
     </div>

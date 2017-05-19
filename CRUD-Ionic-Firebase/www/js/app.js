@@ -1,7 +1,11 @@
 //main wrap da se ne poluta global namespace
 (function(){
 
+<<<<<<< HEAD
 var app = angular.module('queup', ['ionic','angularMoment','firebase','ion-place-tools']);
+=======
+var app = angular.module('queup', ['ionic','angularMoment','firebase',]);
+>>>>>>> parent of ae5430a... 'cadastroequipamentoOK'
 
 
 app.config(function($stateProvider,$urlRouterProvider){
